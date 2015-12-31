@@ -9,15 +9,18 @@
 >
 > -- O-Vieve and V-Tan, in *Jedi Apprentice: The Fight for Truth*
 
-Monitors a changing structured value and tells you *how* it changes. This
-produces an immutable log of events, modeled as fact assertions and
+`kegan` monitors a changing structured value and tells you *how* it changes,
+producing an immutable log of events, modeled as fact assertions and
 retractions. This lets you tie mutable data to a system that expects immutable
-data. It is useful if you want to query both the current state and the
-evolution of that state, a la [Datalog][datalog] in [Datomic][datomic] and
-[Datascript][datascript]. It supports arbitrarily nested and structured data
-automatically by inspecting its structure, with no code to write. For example,
-if you want to monitor a JSON REST API (push or pull) and log changes to a log
-processor, `kegan` is for you.
+data. That immutable data can go into a log manager, or a database like a la
+[Datalog][datalog] like [Datomic][datomic] and [Datascript][datascript] that
+lets you query not just the current state, but also the *evolution* of that
+state efficiently. It supports arbitrarily nested and structured data
+automatically by inspecting its structure, with no code to write.
+
+For example, if you want to monitor a JSON REST API (push or pull) and log
+changes to a log processor or dump them into [Datascript][datascript] to see
+how it changed, `kegan` is for you.
 
 [datalog]: https://en.wikipedia.org/wiki/Datalog
 [datomic]: http://www.datomic.com/
