@@ -22,9 +22,13 @@ For example, if you want to monitor a JSON REST API (push or pull) and log
 changes to a log processor or dump them into [Datascript][datascript] to see
 how it changed, `kegan` is for you.
 
+`kegan` is named after [Kegan][kegan-star-wars], a planet in the Star Wars
+universe where citizens' moves are meticulously watched and noted.
+
 [datalog]: https://en.wikipedia.org/wiki/Datalog
 [datomic]: http://www.datomic.com/
 [datascript]: https://github.com/tonsky/datascript
+[kegan-star-wars]: http://starwars.wikia.com/wiki/Kegan
 
 ## License
 
