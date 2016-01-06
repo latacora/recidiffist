@@ -5,4 +5,9 @@
 (deftest entries-tests
   (are [obj entries] (= (d/entries obj) entries)
     {:a 1}
-    [[[:a] 1]]))
+    [[[:a] 1]]
+
+    {:a 1
+     :b 1}
+    [[[:a] 1]
+     [[:b] 1]]))
