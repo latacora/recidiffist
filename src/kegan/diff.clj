@@ -1,4 +1,7 @@
-(ns kegan.diff)
+(ns kegan.diff
+  (:require
+   [clojure.data :refer [diff]]
+   [clojure.set :as set]))
 
 (defn entries
   "Given a nested object, compute the entries in it
@@ -11,3 +14,12 @@
        (if (map? v)
          (apply vec (entries path v))
          [path v])))))
+
+(defn fancy-diff
+  [prev curr]
+  (let [[old new _] (diff prev curr)
+        [old new] (->> [old new] (map entries) (map (partial into {})))
+        [old-keys new-keys]  (->> [old new] (map keys) (map (partial into #{})))]
+    {:added (map (juxt identity new) (set/difference new-keys old-keys))
+     :changed (map (juxt identity old new) (set/intersection new-keys old-keys))
+     :removed (map (juxt identity old) (set/difference old-keys new-keys))}))
