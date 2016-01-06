@@ -23,4 +23,10 @@
     {}
     {:added []
      :changed []
-     :removed []}))
+     :removed []}
+
+    {:a 1}
+    {}
+    {:added []
+     :changed []
+     :removed [[[:a] 1]]}))
