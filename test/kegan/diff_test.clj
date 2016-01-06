@@ -16,3 +16,11 @@
      :b {:c {:d 1}}}
     [[[:a] 1]
      [[:b :c :d] 1]]))
+
+(deftest fancy-diff-tests
+  (are [a b diff] (= (d/fancy-diff a b) diff)
+    {}
+    {}
+    {:added []
+     :changed []
+     :removed []}))
