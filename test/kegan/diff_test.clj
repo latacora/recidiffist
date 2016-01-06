@@ -47,4 +47,12 @@
     {:a {:b 2}}
     {:added []
      :changed [[[:a :b] 1 2]]
+     :removed []}
+
+    {:a {:b 1}
+     :c 1}
+    {:a {:b 2}
+     :c 1}
+    {:added []
+     :changed [[[:a :b] 1 2]]
      :removed []}))
