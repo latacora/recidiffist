@@ -35,4 +35,10 @@
     {:a 1}
     {:added [[[:a] 1]]
      :changed []
+     :removed []}
+
+    {:a 1}
+    {:a 2}
+    {:added []
+     :changed [[[:a] 1 2]]
      :removed []}))
