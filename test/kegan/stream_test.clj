@@ -23,10 +23,10 @@
 
 
 (deftest pairwise-diffing-tests
-  (are [elems diffs] (= (butlast
+  (are [elems diffs] (= diffs
+                        (butlast
                          ;; last record is because of finalization
-                         (into [] s/pairwise-diffing elems))
-                        diffs)
+                         (into [] s/pairwise-diffing elems)))
     []
     nil ;; (butlast [])
 
