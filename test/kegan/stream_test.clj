@@ -30,4 +30,7 @@
     []
 
     update-elems
-    update-diffs))
+    update-diffs
+
+    add-update-remove-elems
+    add-update-remove-diffs))
