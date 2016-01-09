@@ -28,7 +28,7 @@
                          (into [] s/pairwise-diffing elems))
                         diffs)
     []
-    []
+    nil ;; (butlast [])
 
     update-elems
     update-diffs
