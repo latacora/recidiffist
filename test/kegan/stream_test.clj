@@ -1,7 +1,10 @@
 (ns kegan.stream-test
   (:require
    [kegan.stream :as s]
-   [clojure.test :as t :refer [deftest testing is are]]))
+   [clojure.test :as t :refer [deftest testing is are]]
+   [manifold.deferred :as md]
+   [manifold.stream :as ms]))
+
 (def update-elems
   [{:a 1}
    {:a 2}
@@ -35,7 +38,10 @@
 
     add-update-remove-elems
     add-update-remove-diffs))
-                        diffs)
+
+(deftest diffs-tests
+  (are [elems diffs] (= diffs
+                        (-> (ms/->source elems) (s/diffs) (ms/stream->seq)))
     []
     []
 
