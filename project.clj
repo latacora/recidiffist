@@ -10,4 +10,6 @@
   :plugins [[lein-cljfmt "0.3.0"]]
   :main ^:skip-aot kegan.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all}}
+  :deploy-repositories [["releases" :clojars]
+                        ["snapshots" :clojars]])
