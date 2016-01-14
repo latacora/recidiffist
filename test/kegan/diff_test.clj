@@ -79,4 +79,17 @@
      :x 2}
     {:added [[[:e :f] 1]]
      :changed [[[:x] 1 2]]
-     :removed [[[:c :d] 1]]}))
+     :removed [[[:c :d] 1]]}
+
+    {:a {:b 1
+         :c 1}
+     :p {:q 1}
+     :x 1}
+    {:a {:b 1
+         :c 2}
+     :i {:j 1}
+     :x 2}
+    {:added [[[:i :j] 1]]
+     :changed [[[:x] 1 2]
+               [[:a :c] 1 2]]
+     :removed [[[:p :q] 1]]}))
