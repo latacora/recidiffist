@@ -11,8 +11,12 @@
    {:a 3}])
 
 (def update-diffs
-  [{:added [] :changed [[[:a] 1 2]] :removed []}
-   {:added [] :changed [[[:a] 2 3]] :removed []}])
+  [{:added #{}
+    :changed #{[[:a] 1 2]}
+    :removed #{}}
+   {:added #{}
+    :changed #{[[:a] 2 3]}
+    :removed #{}}])
 
 (def add-update-remove-elems
   [{:a 1}
@@ -21,8 +25,12 @@
    {:b 2}])
 
 (def add-update-remove-diffs
-  [{:added [[[:b] 1]], :changed [[[:a] 1 2]], :removed []}
-   {:added [], :changed [[[:b] 1 2]], :removed [[[:a] 2]]}])
+  [{:added #{[[:b] 1]}
+    :changed #{[[:a] 1 2]}
+    :removed #{}}
+   {:added #{}
+    :changed #{[[:b] 1 2]}
+    :removed #{[[:a] 2]}}])
 
 (deftest pairwise-diffing-tests
   (are [elems diffs] (= diffs
