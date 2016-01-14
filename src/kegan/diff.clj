@@ -21,14 +21,13 @@
 (defn fancy-diff
   [prev curr]
   (let [[old new _] (diff prev curr)
-        [old new] (->> [old new] (map entries) (map (partial into {})))
-        [old-keys new-keys]  (->> [old new] (map keys) (map (partial into #{})))]
-    {:added (->> (set/difference new-keys old-keys)
-                 (map (juxt identity new))
-                 (into #{}))
-     :changed (->> (set/intersection new-keys old-keys)
-                   (map (juxt identity old new))
-                   (into #{}))
-     :removed (->> (set/difference old-keys new-keys)
-                   (map (juxt identity old))
-                   (into #{}))}))
+        [old new] (->> [old new]
+                       (map entries)
+                       (map (partial into {})))
+        [removed-ks added-ks changed-ks] (->> [old new]
+                                              (map keys)
+                                              (map (partial into #{}))
+                                              (apply diff))]
+    {:added (->> added-ks (map (juxt identity new)) (into #{}))
+     :changed (->> changed-ks (map (juxt identity old new)) (into #{}))
+     :removed (->> removed-ks (map (juxt identity old)) (into #{}))}))
