@@ -4,9 +4,9 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.7.0"]
-                 [aleph "0.4.1-SNAPSHOT"]
+                 [aleph "0.4.1-beta2"]
                  [net.cgrand/xforms "0.1.0"]
-                 [com.taoensso/timbre "4.2.1-SNAPSHOT"]]
+                 [com.taoensso/timbre "4.2.0"]]
   :plugins [[lein-cljfmt "0.3.0"]]
   :main ^:skip-aot kegan.core
   :target-path "target/%s"
