@@ -18,7 +18,7 @@
      [[:b :c :d] 1]]))
 
 (deftest fancy-diff-tests
-  (are [a b diff] (= (d/fancy-diff a b) diff)
+  (are [a b diff] (= diff (d/fancy-diff a b))
     {}
     {}
     {:added #{}
