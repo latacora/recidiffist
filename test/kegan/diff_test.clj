@@ -5,17 +5,17 @@
 (deftest entries-tests
   (are [obj entries] (= (d/entries obj) entries)
     {:a 1}
-    [[[:a] 1]]
+    #{[[:a] 1]}
 
     {:a 1
      :b 1}
-    [[[:a] 1]
-     [[:b] 1]]
+    #{[[:a] 1]
+      [[:b] 1]}
 
     {:a 1
      :b {:c {:d 1}}}
-    [[[:a] 1]
-     [[:b :c :d] 1]]))
+    #{[[:a] 1]
+      [[:b :c :d] 1]}))
 
 (deftest fancy-diff-tests
   (are [a b diff] (= diff (d/fancy-diff a b))
