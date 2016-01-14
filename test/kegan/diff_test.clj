@@ -64,7 +64,6 @@
      :changed []
      :removed []}
 
-
     {:a {:b 1}
      :c {:d 1}}
     {:a {:b 1}}
