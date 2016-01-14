@@ -24,7 +24,6 @@
   [{:added [[[:b] 1]], :changed [[[:a] 1 2]], :removed []}
    {:added [], :changed [[[:b] 1 2]], :removed [[[:a] 2]]}])
 
-
 (deftest pairwise-diffing-tests
   (are [elems diffs] (= diffs
                         (butlast
