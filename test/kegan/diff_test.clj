@@ -55,4 +55,29 @@
      :c 1}
     {:added []
      :changed [[[:a :b] 1 2]]
-     :removed []}))
+     :removed []}
+
+    {:a {:b 1}}
+    {:a {:b 1}
+     :c {:d 1}}
+    {:added [[[:c :d] 1]]
+     :changed []
+     :removed []}
+
+
+    {:a {:b 1}
+     :c {:d 1}}
+    {:a {:b 1}}
+    {:added []
+     :changed []
+     :removed [[[:c :d] 1]]}
+
+    {:a {:b 1}
+     :c {:d 1}
+     :x 1}
+    {:a {:b 1}
+     :e {:f 1}
+     :x 2}
+    {:added [[[:e :f] 1]]
+     :changed [[[:x] 1 2]]
+     :removed [[[:c :d] 1]]}))
