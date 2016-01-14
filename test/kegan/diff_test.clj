@@ -15,7 +15,16 @@
     {:a 1
      :b {:c {:d 1}}}
     #{[[:a] 1]
-      [[:b :c :d] 1]}))
+      [[:b :c :d] 1]}
+
+    {:a 1
+     :b {:c {:d 1}
+         :i {:j 1}
+         :p {:q 1}}}
+    #{[[:a] 1]
+      [[:b :c :d] 1]
+      [[:b :i :j] 1]
+      [[:b :p :q] 1]}))
 
 (deftest fancy-diff-tests
   (are [a b diff] (= diff (d/fancy-diff a b))
