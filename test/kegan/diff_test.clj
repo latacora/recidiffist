@@ -1,6 +1,7 @@
 (ns kegan.diff-test
-  (:require [kegan.diff :as d]
-            [clojure.test :as t :refer [deftest testing is are]]))
+  (:require
+   [kegan.diff :as d]
+   [clojure.test :as t :refer [deftest testing is are]]))
 
 (deftest entries-tests
   (are [obj entries] (= entries (d/entries obj))
