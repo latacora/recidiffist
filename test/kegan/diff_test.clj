@@ -140,4 +140,37 @@
       {:a 1}
       {:added #{[[:a] 1]}
        :changed #{}
+       :removed #{}}))
+  (testing "explicit predicate"
+    (are [pred a b expected]
+        (= expected
+           (d/with-sentinel (spy (d/fancy-diff a b)) {:path-pred pred}))
+      (constantly true)
+      {}
+      {}
+      {:added #{}
+       :changed #{}
+       :removed #{}}
+
+      (constantly true)
+      {:a nil}
+      {:a 1}
+      {:added #{[[:a] 1]}
+       :changed #{}
+       :removed #{}}
+
+      (partial = [:a])
+      {:a nil}
+      {:a 1}
+      {:added #{[[:a] 1]}
+       :changed #{}
+       :removed #{}}
+
+      (partial = [:a])
+      {:a nil
+       :b nil}
+      {:a 1
+       :b 1}
+      {:added #{[[:a] 1]}
+       :changed #{[[:b] nil 1]}
        :removed #{}})))
