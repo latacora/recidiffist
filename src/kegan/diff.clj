@@ -31,3 +31,21 @@
     {:added (->> added-ks (map (juxt identity new)) (into #{}))
      :changed (->> changed-ks (map (juxt identity old new)) (into #{}))
      :removed (->> removed-ks (map (juxt identity old)) (into #{}))}))
+
+(defn with-sentinel
+  "Sometimes, your nested value will always have all keys, but use a
+  sentinel to mean that the real value is unknown"
+  ([fancy-diff]
+   (with-sentinel fancy-diff {}))
+  ([{:keys [changed] :as fancy-diff}
+    {:keys [sentinel path-pred]
+     :or {sentinel nil
+          path-pred (constantly true)}}]
+   (let [is-sentinel? (comp (partial = sentinel) second)
+         path-ok? (comp path-pred first)
+         actually-added? (every-pred is-sentinel? path-ok?)
+         actually-added (into #{} (filter actually-added? changed))]
+     (-> fancy-diff
+         (update :changed set/difference actually-added)
+         (update :added into (for [[path _ value] actually-added]
+                               [path value]))))))
