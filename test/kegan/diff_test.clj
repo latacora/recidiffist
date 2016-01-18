@@ -110,4 +110,34 @@
       {}
       {:added #{}
        :changed #{}
+       :removed #{}}
+
+      {:a nil}
+      {:a 1}
+      {:added #{[[:a] 1]}
+       :changed #{}
+       :removed #{}}))
+  (testing "explicit sentinel"
+    (are [sentinel a b expected]
+        (= expected
+           (d/with-sentinel (spy (d/fancy-diff a b)) {:sentinel sentinel}))
+      nil
+      {}
+      {}
+      {:added #{}
+       :changed #{}
+       :removed #{}}
+
+      nil
+      {:a nil}
+      {:a 1}
+      {:added #{[[:a] 1]}
+       :changed #{}
+       :removed #{}}
+
+      :xyzzy
+      {:a :xyzzy}
+      {:a 1}
+      {:added #{[[:a] 1]}
+       :changed #{}
        :removed #{}})))
