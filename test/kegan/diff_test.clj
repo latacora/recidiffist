@@ -119,9 +119,9 @@
        :changed #{}
        :removed #{}}))
   (testing "explicit sentinel"
-    (are [sentinel a b expected]
-        (= expected
-           (d/with-sentinel (d/fancy-diff a b) {:sentinel sentinel}))
+    (are [sentinel a b diff] (-> (d/fancy-diff a b)
+                                 (d/with-sentinel {:sentinel sentinel})
+                                 (= diff))
       nil
       {}
       {}
@@ -143,9 +143,9 @@
        :changed #{}
        :removed #{}}))
   (testing "explicit predicate"
-    (are [pred a b expected]
-        (= expected
-           (d/with-sentinel (d/fancy-diff a b) {:path-pred pred}))
+    (are [pred a b diff] (-> (d/fancy-diff a b)
+                             (d/with-sentinel {:path-pred pred})
+                             (= diff))
       (constantly true)
       {}
       {}
