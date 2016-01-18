@@ -102,3 +102,12 @@
      :changed #{[[:x] 1 2]
                 [[:a :c] 1 2]}
      :removed #{[[:p :q] 1]}}))
+
+(deftest with-sentinel-tests
+  (testing "defaults (nil sentinel, all paths eligible)"
+    (are [a b diff] (= diff (d/with-sentinel (d/fancy-diff a b)))
+      {}
+      {}
+      {:added #{}
+       :changed #{}
+       :removed #{}})))
