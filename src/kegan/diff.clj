@@ -18,6 +18,10 @@
                 [[path v]]))))
          obj)))
 
+(defn ^:private annotate
+  "Annotate ks in a set with the given view fns."
+  [ks & views]
+  (into #{} (map (apply juxt identity views)) ks))
 
 (defn fancy-diff
   [prev curr]
@@ -29,13 +33,13 @@
                                               (map keys)
                                               (map (partial into #{}))
                                               (apply diff))]
-    {:added (->> added-ks (map (juxt identity new)) (into #{}))
-     :changed (->> changed-ks (map (juxt identity old new)) (into #{}))
-     :removed (->> removed-ks (map (juxt identity old)) (into #{}))}))
+    {:added (annotate added-ks new)
+     :changed (annotate changed-ks old new)
+     :removed (annotate removed-ks old)}))
 
 (defn with-sentinel
   "Sometimes, your nested value will always have all keys, but use a
-  sentinel to mean that the real value is unknown"
+  sentinel to mean that the real value is unknown."
   ([fancy-diff]
    (with-sentinel fancy-diff {}))
   ([{:keys [changed] :as fancy-diff}
