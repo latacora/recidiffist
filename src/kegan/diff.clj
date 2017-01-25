@@ -9,14 +9,15 @@
   ([obj]
    (entries [] obj))
   ([prefix obj]
-   (->> obj
-        (mapcat
-         (fn [[k v]]
-           (let [path (conj prefix k)]
-             (if (map? v)
-               (entries path v)
-               [[path v]]))))
-        (into #{}))))
+   (into #{}
+         (mapcat
+          (fn [[k v]]
+            (let [path (conj prefix k)]
+              (if (map? v)
+                (entries path v)
+                [[path v]]))))
+         obj)))
+
 
 (defn fancy-diff
   [prev curr]
