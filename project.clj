@@ -6,7 +6,7 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [aleph "0.4.1-beta2"]
                  [net.cgrand/xforms "0.1.0"]
-                 [com.taoensso/timbre "4.2.0"]]
+                 [com.taoensso/timbre "4.8.0"]]
   :plugins [[lein-cljfmt "0.3.0"]
             [lein-cloverage "1.0.7"]]
   :main ^:skip-aot kegan.core
