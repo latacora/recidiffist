@@ -11,7 +11,7 @@
 (def pairwise-diffing
   "A transducer that partitions incoming elements into pairs (AB BC
   CD...) and then fancy-diffs them."
-  (comp (x/partition 2 1 (x/into []))
+  (comp (x/partition 2 1 nil (x/into []))
         (map fancy-diff-pair)))
 
 (defn diffs
