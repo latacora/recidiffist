@@ -1,4 +1,4 @@
-(defproject kegan "0.8.0"
+(defproject kegan "0.9.0-SNAPSHOT"
   :description "Immutable logs from changing values."
   :url "https://github.com/RackSec/kegan"
   :license {:name "Eclipse Public License"
