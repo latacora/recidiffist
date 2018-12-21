@@ -3,10 +3,10 @@
   :url "https://github.com/RackSec/kegan"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.8.0"]
-                 [aleph "0.4.1"]
-                 [net.cgrand/xforms "0.8.3"]
-                 [com.taoensso/timbre "4.8.0"]]
+  :dependencies [[org.clojure/clojure "1.10.0"]
+                 [manifold "0.1.8"]
+                 [net.cgrand/xforms "0.19.0"]
+                 [com.taoensso/timbre "4.10.0"]]
   :plugins [[lein-cljfmt "0.3.0"]
             [lein-cloverage "1.0.7"]]
   :main ^:skip-aot kegan.core

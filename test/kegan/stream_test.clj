@@ -32,23 +32,11 @@
     :changed #{[[:b] 1 2]}
     :removed #{[[:a] 2]}}])
 
-(deftest pairwise-diffing-tests
-  (are [elems diffs] (= diffs
-                        (butlast
-                         ;; last record is because of finalization
-                         (into [] s/pairwise-diffing elems)))
-    []
-    nil ;; (butlast [])
-
-    update-elems
-    update-diffs
-
-    add-update-remove-elems
-    add-update-remove-diffs))
-
 (deftest diffs-tests
-  (are [elems diffs] (= diffs
-                        (-> (ms/->source elems) (s/diffs) (ms/stream->seq)))
+  (are [elems diffs]
+      (let [into-reference (into [] s/pairwise-diffing elems)]
+        (->> elems ms/->source s/diffs ms/stream->seq (= diffs into-reference)))
+
     []
     []
 
