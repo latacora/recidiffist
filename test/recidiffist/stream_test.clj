@@ -34,8 +34,8 @@
 
 (deftest diffs-tests
   (are [elems diffs]
-      (let [into-reference (into [] s/pairwise-diffing elems)]
-        (->> elems ms/->source s/diffs ms/stream->seq (= diffs into-reference)))
+       (let [into-reference (into [] s/pairwise-diffing elems)]
+         (->> elems ms/->source s/diffs ms/stream->seq (= diffs into-reference)))
 
     []
     []
