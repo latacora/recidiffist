@@ -1,6 +1,6 @@
-(ns kegan.stream-test
+(ns recidiffist.stream-test
   (:require
-   [kegan.stream :as s]
+   [recidiffist.stream :as s]
    [clojure.test :as t :refer [deftest testing is are]]
    [manifold.deferred :as md]
    [manifold.stream :as ms]))

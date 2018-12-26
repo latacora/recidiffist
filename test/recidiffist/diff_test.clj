@@ -1,6 +1,6 @@
-(ns kegan.diff-test
+(ns recidiffist.diff-test
   (:require
-   [kegan.diff :as d]
+   [recidiffist.diff :as d]
    [clojure.test :as t :refer [deftest testing is are]]))
 
 (deftest entries-tests

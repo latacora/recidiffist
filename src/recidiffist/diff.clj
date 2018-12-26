@@ -1,4 +1,4 @@
-(ns kegan.diff
+(ns recidiffist.diff
   (:require
    [clojure.data :refer [diff]]
    [clojure.set :as set]))

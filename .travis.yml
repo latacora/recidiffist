@@ -1,6 +1,9 @@
+dist: xenial
 language: clojure
 jdk:
-  - oraclejdk8
+  - openjdk8
+  - openjdk11
+  - openjdk-ea
 cache:
   directories:
     - "$HOME/.lein"
@@ -12,7 +15,3 @@ script:
 after_success:
   - lein cloverage --codecov
   - bash <(curl -s https://codecov.io/bash) -f target/coverage/codecov.json
-notifications:
-  email: false
-  slack:
-    secure: sBiR/AVnFt+RcGRpMwda+fnpkiwo4ANXXOzuezE1WzofCuNXvhLsGHb7tCv0NT7C2YrvFUakgce0Y8LMZ5c3F93zQu86lBLVMGi4N++/iEHFM4aNr9mNSdNqexxMB2LfO1k3yCCGvLZJcbkC6wwylC1j0+3dZXJqhmQVywQ56PnN3Igxy+aNs9iDv3/RjcF1noXAN/poOO4e2EHZYJ9Qe62QJGvD/Hfe+gooI1nQWDn7d55rtWZ2WvQSDzNCFxPkVA0hRCUHE8d584nFbiGtbjRxhnD15BjAk9EP5bLboZ3NlkE890X+s51RbRu/DggBk4Hni4zMIuRV1EijzdjuOvQQI+AZviJpK2cz7ehhfGAVWAKjFDUs8Sz3gw0+6nyatpJoeA6d0pIyTIOsVJ8DZ2qIIiYQkq/0rzbQEwtWtkOtjTUO6he2mG8fc90zMoVh97RS/PSy5jM81lG4F9lk8jkABar1w4qNPkfdW68pZXxY/ApXAHmTmyJ6wU0gOED4N4ASxopr4SLo0JSvL2/ejYvdpkfb9DXCcYQmZ/MVe8YlbgZDFPLIC1jeE9I5GEFHK5/E0+bXa+jYzOmsNqbGCXVhFHgMj4RI+5meMOT+bwj4WQ4qQQRl/wVnTDRwlcvYsriJQPasAxCS1mYtUa2qjqYtDhuTfRkX+S/1k4/krG0=

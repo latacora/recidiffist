@@ -1,6 +1,6 @@
-(ns kegan.stream
+(ns recidiffist.stream
   (:require
-   [kegan.diff :as kd]
+   [recidiffist.diff :as kd]
    [manifold.stream :as ms]
    [net.cgrand.xforms :as x]))
 
