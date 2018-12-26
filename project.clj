@@ -1,4 +1,4 @@
-(defproject recidiffist "0.11.0-SNAPSHOT"
+(defproject recidiffist "0.11.0"
   :description "Immutable logs from changing values."
   :url "https://github.com/latacora/recidiffist"
   :license {:name "Eclipse Public License"
